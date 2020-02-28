@@ -294,7 +294,7 @@ class CompletionHandler(sublime_plugin.ViewEventListener):
         # label is an alternative for insertText if neither textEdit nor insertText is provided
         insert_text = self.text_edit_text(item) or item.get("insertText") or label
         if len(insert_text) > 0 and insert_text[0] == '$':  # sublime needs leading '$' escaped.
-            insert_text = '\\$' + insert_text[1:]
+            insert_text = insert_text[1:]
         # only return label with a hint if available
         return "\t  ".join((icon + " " + label, hint)) if hint else icon + " " + label, insert_text
 
